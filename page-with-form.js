@@ -1,3 +1,5 @@
+const SendmailTransport = require("nodemailer/lib/sendmail-transport");
+
 const form = document.getElementById('form');
 const result = document.getElementById('result');
 
@@ -36,3 +38,50 @@ result.innerHTML = "Please wait..."
             }, 3000);
         });
 });
+
+//Различные обработчики данных:
+
+form.addEventListener('submit', function(event) {
+    // Предотвращаем отправку формы по умолчанию
+    event.preventDefault();
+
+    // Получаем значение поля ввода
+    var inputField = document.getElementById('message').value;
+
+    // Пример валидации: проверяем, что поле не пустое
+    if (inputField.trim() === '') {
+        alert('Пожалуйста, заполните поле');
+        return;
+    }
+
+    // Если прошли валидацию, можно отправить форму
+    form.submit();
+
+})
+
+    function processData() {
+        let data = document.getElementById('message').value;
+        console.log(data1);
+        return false; 
+    }
+
+    document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+        event.preventDefault(SendmailTransport); 
+        let data = document.getElementById('email').value;
+        console.log(data2);
+    });
+
+    document.getElementById('feedbackForm').addEventListener('click', function(event) {
+        if (event.target.tagName == 'BUTTON') {
+            event.preventDefault();
+            let data = document.getElementById('message').value;
+            console.log(data3);
+        }
+    });
+
+
+    $('#feedbackForm').on('submit', function(event) {
+        event.preventDefault();
+    let data = $('#name').val();
+console.log(data4);
+    })
